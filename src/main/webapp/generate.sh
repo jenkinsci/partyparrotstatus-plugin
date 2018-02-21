@@ -27,15 +27,16 @@
 # use has largely changed (transparency, hue not flash, quality etc..)
 
 sizes="16x16 24x24 32x32 48x48"
-origins=$(ls origin)
+gif_origins=$(ls origin | grep '.gif')
+png_origins=$(ls origin | grep '.png')
 
 for size in $sizes; do
     mkdir -p $size
-    for file in $(echo $origins | grep '.gif'); do
+    for file in $gif_origins; do
         convert origin/$file -resize $size $size/$file
         convert origin/$file -resize $size $size/${file%.gif}_anime.gif
     done
-    for file in $(echo $origins | grep '.png'); do
+    for file in $png_origins; do
         convert origin/$file -resize $size $size/$file
     done
 done
