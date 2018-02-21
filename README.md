@@ -1,5 +1,9 @@
 # Party Parrot Status for Jenkins
 
+Providing a party parrot look to Jenkins Status indicators. 
+
+![Example](https://raw.githubusercontent.com/nikitabelonogov/partyparrotstatus-plugin/master/example.gif)
+
 Status | Build Finished | Build in Progress
 ------ | -------------- | -----------------
 No Build | ![No Build](https://raw.githubusercontent.com/nikitabelonogov/partyparrotstatus-plugin/master/src/main/webapp/24x24/nobuilt.png) | ![No Build, new Build in Progress](https://raw.githubusercontent.com/nikitabelonogov/partyparrotstatus-plugin/master/src/main/webapp/24x24/nobuilt_anime.gif)

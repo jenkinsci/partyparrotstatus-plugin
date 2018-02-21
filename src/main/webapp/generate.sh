@@ -23,9 +23,6 @@
 # THE SOFTWARE.
 #
 
-# Greenballs provided the original idea and tools available but the outcome and
-# use has largely changed (transparency, hue not flash, quality etc..)
-
 sizes="16x16 24x24 32x32 48x48"
 gif_origins=$(ls origin | grep '.gif')
 png_origins=$(ls origin | grep '.png')

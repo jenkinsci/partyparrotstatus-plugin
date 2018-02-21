@@ -15,8 +15,8 @@
         <jenkins.version>2.7.3</jenkins.version>
         <java.level>7</java.level>
     </properties>
-    <name>TODO Plugin</name>
-    <description>TODO</description>
+    <name>Party Parrot Status</name>
+    <description>A party parrot icon set for Jenkins.</description>
     <licenses>
         <license>
             <name>MIT License</name>

@@ -10,22 +10,14 @@ import java.util.regex.Pattern;
 
 public class PartyParrotStatusFilter implements Filter {
 
-    final String patternStr = "/(\\d{2}x\\d{2})/%s(_anime|)\\.(gif|png)";
-    final String[] names = new String[]{"blue", "red", "yellow", "nobuilt", "aborted", "folder", "grey", "edit-delete", "clock", "disabled"};
-    Pattern[] patterns;
+    final Pattern pattern = Pattern.compile("/(\\d{2}x\\d{2})/(blue|red|yellow|nobuilt|aborted|folder|grey|edit-delete|clock|disabled)(_anime|)\\.(gif|png)");
 
-    public void init(FilterConfig config) throws ServletException {
-        patterns = new Pattern[names.length];
-        int i = 0;
-        for (String n : names) {
-            patterns[i] = Pattern.compile(String.format(patternStr, n));
-            i++;
-        }
-    }
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException { }
 
-    /**
-     * @author Asgeir Storesund Nilsen
-     */
+    @Override
+    public void destroy() { }
+
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
         if (req instanceof HttpServletRequest && resp instanceof HttpServletResponse) {
             final HttpServletRequest httpServletRequest = (HttpServletRequest) req;
@@ -43,25 +35,14 @@ public class PartyParrotStatusFilter implements Filter {
         chain.doFilter(req, resp);
     }
 
-    /**
-     * Original
-     *
-     * @author Asgeir Storesund Nilsen
-     * Simplified
-     * @author Oliver Vinn
-     */
     private String mapImage(String uri) {
         if (!uri.contains("plugin/partyparrotstatus/")) {
-            Matcher m;
-            for (int i = 0; i < patterns.length; i++) {
-                if ((m = patterns[i].matcher(uri)).find()) {
-                    return "/plugin/partyparrotstatus/" + m.group(1) + "/" + names[i] + m.group(2) + "." + m.group(3);
-                }
+            Matcher m = pattern.matcher(uri);
+            if (m.find()) {
+                return "/plugin/partyparrotstatus/" + m.group(1) + "/" + m.group(2) + m.group(3) + "." + m.group(4);
             }
         }
         return null;
     }
 
-    public void destroy() {
-    }
 }
