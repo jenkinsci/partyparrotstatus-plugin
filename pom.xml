@@ -23,14 +23,12 @@
             <url>https://opensource.org/licenses/MIT</url>
         </license>
     </licenses>
-    <!-- Assuming you want to host on @jenkinsci:
-    <url>https://wiki.jenkins.io/display/JENKINS/TODO+Plugin</url>
+    <url>https://wiki.jenkins.io/display/JENKINS/Patry+Parrot+Status+Plugin</url>
     <scm>
-        <connection>scm:git:git://github.com/jenkinsci/${project.artifactId}-plugin.git</connection>
-        <developerConnection>scm:git:git@github.com:jenkinsci/${project.artifactId}-plugin.git</developerConnection>
-        <url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
+        <connection>scm:git:git://github.com/jenkinsci/partyparrotstatus-plugin.git</connection>
+        <developerConnection>scm:git:git@github.com:jenkinsci/partyparrotstatus-plugin.git</developerConnection>
+        <url>https://github.com/jenkinsci/partyparrotstatus-plugin</url>
     </scm>
-    -->
     <repositories>
         <repository>
             <id>repo.jenkins-ci.org</id>
